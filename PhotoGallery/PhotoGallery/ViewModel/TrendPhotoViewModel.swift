@@ -22,20 +22,20 @@ protocol TrendPhotoRepresentable: ViewModelLiveCycle {
     
     // ui api
     var isLandscape: Bool { get }
+    var lastErrorMessage: String? { get }
+    var visibleCellInRow: CGFloat { get }
     func cellSize(at row: Int) -> CGSize
     func item(at row: Int) -> PhotoObject
     func setCollectionBounds(_ size: CGSize)
     func itemsCount() -> Int
     func cellViewModel(at row: Int) -> TrendCellViewModel
     func detailModel(at row: Int) -> PhotoDetailViewModel
-    var lastErrorMessage: String? { get }
-    var visibleCellInRow: CGFloat { get }
     func fetch()
 }
 
 class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
     func detailModel(at row: Int) -> PhotoDetailViewModel {
-         return PhotoDetailViewModel(model: item(at: row))
+        return PhotoDetailViewModel(model: item(at: row))
     }
     
     var didFail: (() -> ())?
@@ -85,12 +85,6 @@ class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
     }
     
     func cellSize(at row: Int) -> CGSize {
-//        if isLandscape {
-//            return CGSize(width: collectionSize.width - collectionLineSpacing * 2, height: 100)
-//        } else {
-//            return CGSize(width: collectionSize.width / 2 - collectionLineSpacing * 2, height: 150)
-//        }
-        
         let visibleCellWidth = (collectionSize.width - collectionSpacing * (visibleCellInRow + 1)) / visibleCellInRow
         
         let data = item(at: row)

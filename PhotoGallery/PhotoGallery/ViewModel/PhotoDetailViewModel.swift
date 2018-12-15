@@ -11,11 +11,11 @@ import Kingfisher
 
 class PhotoDetailViewModel {
     var model: PhotoObject
-    
+
     init(model: PhotoObject) {
         self.model = model
     }
-    
+
     var fullImage: URL? {
         return URL(string: model.fullImagePath)
     }

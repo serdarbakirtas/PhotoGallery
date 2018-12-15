@@ -201,6 +201,7 @@
 		0520972721C52DD50026579C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				0520975F21C5BDA50026579C /* Utils */,
 				0520973B21C536A20026579C /* Extensions */,
 				0520972C21C533480026579C /* Config */,
 			);
@@ -251,7 +252,6 @@
 				0520970721C52C0F0026579C /* Trends.storyboard */,
 				0520974421C54BCC0026579C /* TrendPhotosController.swift */,
 				0520974621C54CB80026579C /* TrendPhotoCell.swift */,
-				0520975521C5759B0026579C /* PinterestLayout.swift */,
 			);
 			path = TrendsList;
 			sourceTree = "<group>";
@@ -263,6 +263,14 @@
 				0520975921C5843A0026579C /* TrendDetailController.swift */,
 			);
 			path = TrendDetail;
+			sourceTree = "<group>";
+		};
+		0520975F21C5BDA50026579C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0520975521C5759B0026579C /* PinterestLayout.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		32989480CDC6105C45ED5B57 /* Pods */ = {

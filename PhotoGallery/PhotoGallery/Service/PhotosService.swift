@@ -20,7 +20,7 @@ extension PhotosService: TargetType, UnsplashCredentials {
     
     public var path: String {
         switch self {
-        case let .trendPhotos:
+        case .trendPhotos:
             return "/photos"
         }
     }

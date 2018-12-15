@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>UnsplashURL</key>
-	<string>https://api.unsplash.com/photos/?</string>
+	<string>https://api.unsplash.com</string>
 	<key>ApiKey</key>
 	<string>15d849a0592bd2acf99b00d6da7b29c1645f6c68a853e0c2acf6cbd07f60dbed</string>
 </dict>
