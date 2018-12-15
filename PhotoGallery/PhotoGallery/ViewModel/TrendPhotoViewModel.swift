@@ -17,7 +17,7 @@ protocol TrendPhotoRepresentable: ViewModelLiveCycle {
     var didFail: (() -> ())? { get set }
     
     // config
-    var collectionLineSpacing: CGFloat { get set }
+    var collectionSpacing: CGFloat { get set }
     var collectionInset: UIEdgeInsets { get set }
     
     // ui api
@@ -27,6 +27,8 @@ protocol TrendPhotoRepresentable: ViewModelLiveCycle {
     func setCollectionBounds(_ size: CGSize)
     func itemsCount() -> Int
     func cellViewModel(at row: Int) -> TrendCellViewModel
+    var lastErrorMessage: String? { get }
+    var visibleCellInRow: CGFloat { get }
 }
 
 class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
@@ -53,7 +55,7 @@ class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
     }
     
     // itunes search retuning zero result on empty search string
-    var collectionLineSpacing: CGFloat = 10
+    var collectionSpacing: CGFloat = 10
     var collectionInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     
     var collectionSize: CGSize = UIScreen.main.bounds.size
@@ -61,6 +63,8 @@ class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
     var isLandscape: Bool {
         return collectionSize.width > collectionSize.height
     }
+    
+    var visibleCellInRow: CGFloat = 2
     
     func itemsCount() -> Int {
         return model.photos.count
@@ -71,11 +75,18 @@ class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
     }
     
     func cellSize(at row: Int) -> CGSize {
-        if isLandscape {
-            return CGSize(width: collectionSize.width - collectionLineSpacing * 2, height: 100)
-        } else {
-            return CGSize(width: collectionSize.width / 2 - collectionLineSpacing * 2, height: 150)
-        }
+//        if isLandscape {
+//            return CGSize(width: collectionSize.width - collectionLineSpacing * 2, height: 100)
+//        } else {
+//            return CGSize(width: collectionSize.width / 2 - collectionLineSpacing * 2, height: 150)
+//        }
+        
+        let visibleCellWidth = (collectionSize.width - collectionSpacing * (visibleCellInRow + 1)) / visibleCellInRow
+        
+        let data = item(at: row)
+        let visibleCellHeight = min((CGFloat(data.height) / CGFloat(data.width)) * visibleCellWidth, collectionSize.height - 20)
+        
+        return CGSize(width: visibleCellWidth, height: visibleCellHeight)
     }
     
     func item(at row: Int) -> PhotoObject {
@@ -84,5 +95,9 @@ class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
     
     func setCollectionBounds(_ size: CGSize) {
         collectionSize = size
+    }
+    
+    var lastErrorMessage: String? {
+        return model.lastError?.serverErrorDescription
     }
 }

@@ -31,6 +31,8 @@
 		0520974E21C54E420026579C /* ViewModelLifeCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520974D21C54E420026579C /* ViewModelLifeCycle.swift */; };
 		0520975021C55B970026579C /* TrendCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520974F21C55B970026579C /* TrendCellViewModel.swift */; };
 		0520975221C55BE70026579C /* PhotoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520975121C55BE70026579C /* PhotoObject.swift */; };
+		0520975421C56AB50026579C /* Error+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520975321C56AB50026579C /* Error+.swift */; };
+		0520975621C5759B0026579C /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520975521C5759B0026579C /* PinterestLayout.swift */; };
 		76DB3FF697CF66B1BF0E530C /* libPods-PhotoGallery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB97184582D99C8884FE6599 /* libPods-PhotoGallery.a */; };
 		AC92EEF090511D182C8BF22B /* libPods-PhotoGalleryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0283EC69261738FFB3DE9A44 /* libPods-PhotoGalleryTests.a */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,8 @@
 		0520974D21C54E420026579C /* ViewModelLifeCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelLifeCycle.swift; sourceTree = "<group>"; };
 		0520974F21C55B970026579C /* TrendCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendCellViewModel.swift; sourceTree = "<group>"; };
 		0520975121C55BE70026579C /* PhotoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoObject.swift; sourceTree = "<group>"; };
+		0520975321C56AB50026579C /* Error+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+.swift"; sourceTree = "<group>"; };
+		0520975521C5759B0026579C /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		572989924D66B3540FC8C77D /* Pods-PhotoGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoGallery/Pods-PhotoGallery.release.xcconfig"; sourceTree = "<group>"; };
 		692F3FB6EA5684291BCB4C29 /* Pods-PhotoGalleryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGalleryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoGalleryTests/Pods-PhotoGalleryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		991F4192F8D75312B7CC56FC /* Pods-PhotoGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGallery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoGallery/Pods-PhotoGallery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				0520970721C52C0F0026579C /* Trends.storyboard */,
 				0520974421C54BCC0026579C /* TrendPhotosController.swift */,
 				0520974621C54CB80026579C /* TrendPhotoCell.swift */,
+				0520975521C5759B0026579C /* PinterestLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			children = (
 				0520973C21C537610026579C /* Moya+Promises.swift */,
 				0520974021C53F900026579C /* UIViewController+Alert.swift */,
+				0520975321C56AB50026579C /* Error+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 				0520973D21C537610026579C /* Moya+Promises.swift in Sources */,
 				0520975021C55B970026579C /* TrendCellViewModel.swift in Sources */,
 				0520974721C54CB80026579C /* TrendPhotoCell.swift in Sources */,
+				0520975621C5759B0026579C /* PinterestLayout.swift in Sources */,
 				0520972B21C533020026579C /* AppConfig.swift in Sources */,
 				0520974C21C54E360026579C /* ViewModel.swift in Sources */,
 				0520974521C54BCC0026579C /* TrendPhotosController.swift in Sources */,
@@ -440,6 +447,7 @@
 				0520973821C5348F0026579C /* R.generated.swift in Sources */,
 				0520974321C541C00026579C /* Service+Access.swift in Sources */,
 				0520972921C532290026579C /* PhotosService.swift in Sources */,
+				0520975421C56AB50026579C /* Error+.swift in Sources */,
 				0520975221C55BE70026579C /* PhotoObject.swift in Sources */,
 				0520970421C52C0F0026579C /* AppDelegate.swift in Sources */,
 				0520974E21C54E420026579C /* ViewModelLifeCycle.swift in Sources */,

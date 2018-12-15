@@ -17,11 +17,22 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
                 return
             }
 
-            viewModel.didUpdate = {
+            viewModel.didUpdate = { [weak self] in
+                guard let `self` = self else {
+                    return
+                }
                 self.collectionView.reloadData()
             }
 
-            viewModel.didFail = {}
+            viewModel.didFail = { [weak self] in
+                guard let `self` = self else {
+                    return
+                }
+
+                if let message = self.viewModel.lastErrorMessage {
+                    self.showMessage("", message, callback: nil)
+                }
+            }
 
             _ = self.view
             try? viewModel.prepare()
@@ -34,9 +45,14 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
         // Register cell classes
         collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
+        layout.delegate = self
+        let spacing = viewModel.collectionSpacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        layout.headerHeight = 0
+
         viewModel.setCollectionBounds(view.frame.size)
-        layout.minimumLineSpacing = viewModel.collectionLineSpacing
-        layout.sectionInset = viewModel.collectionInset
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -57,8 +73,8 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
         }
     }
 
-    var layout: UICollectionViewFlowLayout {
-        return self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+    var layout: WaterfallLayout {
+        return self.collectionView.collectionViewLayout as! WaterfallLayout
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -78,8 +94,19 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
 
         return cell
     }
+}
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+extension TrendPhotosController: WaterfallLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, layout: WaterfallLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return viewModel.cellSize(at: indexPath.row)
+    }
+
+    func collectionViewLayout(for section: Int) -> WaterfallLayout.Layout {
+        if viewModel.isLandscape {
+              return .waterfall(column: 4, distributionMethod: WaterfallLayout.DistributionMethod.balanced)
+        } else {
+              return .waterfall(column: 2, distributionMethod: WaterfallLayout.DistributionMethod.balanced)
+        }
+      
     }
 }

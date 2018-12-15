@@ -9,5 +9,11 @@
 import Foundation
 
 protocol PhotoObject {
-    var thumbnail: String { get }
+    var thumbnailImagePath: String { get }
+    var regularImagePath: String { get }
+    var width: Int { get }
+    var height: Int { get }
+    var likes: Int { get }
+    var id: String { get }
+    var username: String { get }
 }
