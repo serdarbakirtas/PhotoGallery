@@ -29,6 +29,7 @@ protocol TrendPhotoRepresentable: ViewModelLiveCycle {
     func cellViewModel(at row: Int) -> TrendCellViewModel
     var lastErrorMessage: String? { get }
     var visibleCellInRow: CGFloat { get }
+    func fetch()
 }
 
 class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
@@ -46,7 +47,11 @@ class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
     /// Prepare model of weather
     func prepare() throws {
 //        let model = TrendPhotoModel(provider: MoyaProvider<PhotosService>())
-        model.fetchNext().then { _ in
+        fetch()
+    }
+    
+    func fetch() {
+        model.fetchNext()?.then { _ in
         }.catch { [weak self] _ in
             self?.didFail?()
         }.always(on: .main) { [weak self] in
@@ -56,7 +61,7 @@ class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
     
     // itunes search retuning zero result on empty search string
     var collectionSpacing: CGFloat = 10
-    var collectionInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    var collectionInset: UIEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     var collectionSize: CGSize = UIScreen.main.bounds.size
     

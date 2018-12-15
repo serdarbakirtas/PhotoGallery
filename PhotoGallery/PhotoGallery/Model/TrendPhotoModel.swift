@@ -21,7 +21,11 @@ class TrendPhotoModel {
         self.provider = provider
     }
     
-    func fetchNext() -> Promise<[UnsplashPhotoObject]> {
+    func fetchNext() -> Promise<[UnsplashPhotoObject]>? {
+        guard !isBusy else {
+            return nil
+        }
+        
         isBusy = true
         
         let searchPromise: Promise<[UnsplashPhotoObject]> = provider.promise(PhotosService.trendPhotos(page: currentPage))
@@ -33,6 +37,7 @@ class TrendPhotoModel {
             }
             
             self.photos = self.photos + results
+            self.currentPage = self.currentPage + 1
         }.catch { error in
             self.lastError = error
         }.always { [weak self] in

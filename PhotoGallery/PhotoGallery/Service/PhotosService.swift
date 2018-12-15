@@ -46,7 +46,7 @@ extension PhotosService: TargetType, UnsplashCredentials {
     public var task: Task {
         switch self {
         case let .trendPhotos(page: page):
-            return .requestParameters(parameters: ["page": page], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["page": page], encoding: URLEncoding.default)
         }
     }
 }

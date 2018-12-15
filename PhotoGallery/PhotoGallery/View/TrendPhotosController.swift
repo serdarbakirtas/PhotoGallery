@@ -8,8 +8,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class TrendPhotosController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var viewModel: TrendPhotoRepresentable! {
         didSet {
@@ -41,9 +39,6 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Register cell classes
-        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         layout.delegate = self
         let spacing = viewModel.collectionSpacing
@@ -94,6 +89,17 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
 
         return cell
     }
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y + scrollView.frame.size.height
+        let contentHeight = scrollView.contentSize.height
+
+//        print("\(offsetY) \(contentHeight)")
+        
+        if offsetY - contentHeight > 40 {
+            viewModel.fetch()
+        }
+    }
 }
 
 extension TrendPhotosController: WaterfallLayoutDelegate {
@@ -103,10 +109,9 @@ extension TrendPhotosController: WaterfallLayoutDelegate {
 
     func collectionViewLayout(for section: Int) -> WaterfallLayout.Layout {
         if viewModel.isLandscape {
-              return .waterfall(column: 4, distributionMethod: WaterfallLayout.DistributionMethod.balanced)
+            return .waterfall(column: 4, distributionMethod: WaterfallLayout.DistributionMethod.balanced)
         } else {
-              return .waterfall(column: 2, distributionMethod: WaterfallLayout.DistributionMethod.balanced)
+            return .waterfall(column: 2, distributionMethod: WaterfallLayout.DistributionMethod.balanced)
         }
-      
     }
 }
