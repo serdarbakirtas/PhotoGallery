@@ -74,8 +74,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `TrendPhotoCell`.
+    static let trendPhotoCell: Rswift.ReuseIdentifier<TrendPhotoCell> = Rswift.ReuseIdentifier(identifier: "TrendPhotoCell")
+    
     fileprivate init() {}
   }
   
@@ -88,17 +91,17 @@ struct R: Rswift.Validatable {
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Main`.
-    static let main = _R.storyboard.main()
+    /// Storyboard `Trends`.
+    static let trends = _R.storyboard.trends()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
     }
     
-    /// `UIStoryboard(name: "Main", bundle: ...)`
-    static func main(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.main)
+    /// `UIStoryboard(name: "Trends", bundle: ...)`
+    static func trends(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.trends)
     }
     
     fileprivate init() {}
@@ -111,7 +114,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -122,12 +125,20 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try storyboard.validate()
+  }
+  
   struct nib {
     fileprivate init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try trends.validate()
+    }
+    
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UIViewController
       
@@ -137,11 +148,20 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType {
-      typealias InitialController = ViewController
+    struct trends: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
-      let name = "Main"
+      let name = "Trends"
+      let trendPhotosController = StoryboardViewControllerResource<TrendPhotosController>(identifier: "TrendPhotosController")
+      
+      func trendPhotosController(_: Void = ()) -> TrendPhotosController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: trendPhotosController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.trends().trendPhotosController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'trendPhotosController' could not be loaded from storyboard 'Trends' as 'TrendPhotosController'.") }
+      }
       
       fileprivate init() {}
     }

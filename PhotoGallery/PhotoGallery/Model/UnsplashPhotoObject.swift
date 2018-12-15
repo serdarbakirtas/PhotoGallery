@@ -15,3 +15,10 @@ struct UnsplashPhotoObject: Decodable {
 //    var width: Int
 //    var height: Int
 }
+
+// map Unsplash photo model to our gallery model
+extension UnsplashPhotoObject: PhotoObject {
+    var thumbnail: String {
+        return ""
+    }
+}

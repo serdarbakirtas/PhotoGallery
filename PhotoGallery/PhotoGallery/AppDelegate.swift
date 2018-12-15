@@ -14,19 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = .white
 
         AppConfig.configure(application: application, launchOptions: launchOptions ?? [:])
 
+        let controller = R.storyboard.trends.trendPhotosController()!
         let model = TrendPhotoModel(provider: MoyaProvider<PhotosService>())
-        model.fetchNext().then { _ in
-            let allPhotos = model.photos
-            print("")
-
-        }.catch { error in
-
-            self.window?.rootViewController?.showError(error)
-        }
+        controller.viewModel = TrendPhotoViewModel(model: model)
+        
+        window?.rootViewController = controller
+        window?.makeKeyAndVisible()
 
         return true
     }

@@ -15,6 +15,7 @@ class TrendPhotoModel {
     var isBusy = false
     var provider: MoyaProvider<PhotosService>
     var photos: [UnsplashPhotoObject] = []
+    var lastError: Error?
     
     init(provider: MoyaProvider<PhotosService>) {
         self.provider = provider
@@ -33,7 +34,7 @@ class TrendPhotoModel {
             
             self.photos = self.photos + results
         }.catch { error in
-            print(error)
+            self.lastError = error
         }.always { [weak self] in
             self?.isBusy = false
         }
