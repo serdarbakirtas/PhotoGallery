@@ -13,6 +13,18 @@
 		0520970B21C52C100026579C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0520970A21C52C100026579C /* Assets.xcassets */; };
 		0520970E21C52C100026579C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0520970C21C52C100026579C /* LaunchScreen.storyboard */; };
 		0520971921C52C110026579C /* PhotoGalleryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520971821C52C110026579C /* PhotoGalleryTests.swift */; };
+		0520972921C532290026579C /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520972821C532290026579C /* PhotosService.swift */; };
+		0520972B21C533020026579C /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520972A21C533020026579C /* AppConfig.swift */; };
+		0520973021C5335C0026579C /* DEBUG.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0520972D21C5335C0026579C /* DEBUG.plist */; };
+		0520973121C5335C0026579C /* RELEASE.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0520972E21C5335C0026579C /* RELEASE.plist */; };
+		0520973221C5335C0026579C /* STAGING.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0520972F21C5335C0026579C /* STAGING.plist */; };
+		0520973521C5340C0026579C /* photos in Resources */ = {isa = PBXBuildFile; fileRef = 0520973421C5340C0026579C /* photos */; };
+		0520973821C5348F0026579C /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520973721C5348F0026579C /* R.generated.swift */; };
+		0520973A21C534DA0026579C /* UnsplashPhotoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520973921C534DA0026579C /* UnsplashPhotoObject.swift */; };
+		0520973D21C537610026579C /* Moya+Promises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520973C21C537610026579C /* Moya+Promises.swift */; };
+		0520973F21C5382E0026579C /* TrendPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520973E21C5382E0026579C /* TrendPhotoModel.swift */; };
+		0520974121C53F900026579C /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520974021C53F900026579C /* UIViewController+Alert.swift */; };
+		0520974321C541C00026579C /* Service+Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0520974221C541C00026579C /* Service+Access.swift */; };
 		76DB3FF697CF66B1BF0E530C /* libPods-PhotoGallery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB97184582D99C8884FE6599 /* libPods-PhotoGallery.a */; };
 		AC92EEF090511D182C8BF22B /* libPods-PhotoGalleryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0283EC69261738FFB3DE9A44 /* libPods-PhotoGalleryTests.a */; };
 /* End PBXBuildFile section */
@@ -39,6 +51,18 @@
 		0520971421C52C110026579C /* PhotoGalleryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoGalleryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0520971821C52C110026579C /* PhotoGalleryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryTests.swift; sourceTree = "<group>"; };
 		0520971A21C52C110026579C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0520972821C532290026579C /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
+		0520972A21C533020026579C /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		0520972D21C5335C0026579C /* DEBUG.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DEBUG.plist; sourceTree = "<group>"; };
+		0520972E21C5335C0026579C /* RELEASE.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RELEASE.plist; sourceTree = "<group>"; };
+		0520972F21C5335C0026579C /* STAGING.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = STAGING.plist; sourceTree = "<group>"; };
+		0520973421C5340C0026579C /* photos */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = photos; sourceTree = "<group>"; };
+		0520973721C5348F0026579C /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		0520973921C534DA0026579C /* UnsplashPhotoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashPhotoObject.swift; sourceTree = "<group>"; };
+		0520973C21C537610026579C /* Moya+Promises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Promises.swift"; sourceTree = "<group>"; };
+		0520973E21C5382E0026579C /* TrendPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendPhotoModel.swift; sourceTree = "<group>"; };
+		0520974021C53F900026579C /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		0520974221C541C00026579C /* Service+Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Access.swift"; sourceTree = "<group>"; };
 		572989924D66B3540FC8C77D /* Pods-PhotoGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoGallery/Pods-PhotoGallery.release.xcconfig"; sourceTree = "<group>"; };
 		692F3FB6EA5684291BCB4C29 /* Pods-PhotoGalleryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGalleryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoGalleryTests/Pods-PhotoGalleryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		991F4192F8D75312B7CC56FC /* Pods-PhotoGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoGallery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoGallery/Pods-PhotoGallery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +93,7 @@
 		052096F721C52C0F0026579C = {
 			isa = PBXGroup;
 			children = (
+				0520973721C5348F0026579C /* R.generated.swift */,
 				0520970221C52C0F0026579C /* PhotoGallery */,
 				0520971721C52C110026579C /* PhotoGalleryTests */,
 				0520970121C52C0F0026579C /* Products */,
@@ -130,6 +155,8 @@
 		0520972521C52DC70026579C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0520973921C534DA0026579C /* UnsplashPhotoObject.swift */,
+				0520973E21C5382E0026579C /* TrendPhotoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,6 +164,9 @@
 		0520972621C52DCF0026579C /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				0520973321C533FE0026579C /* Mock */,
+				0520972821C532290026579C /* PhotosService.swift */,
+				0520974221C541C00026579C /* Service+Access.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -144,8 +174,38 @@
 		0520972721C52DD50026579C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				0520973B21C536A20026579C /* Extensions */,
+				0520972C21C533480026579C /* Config */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		0520972C21C533480026579C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				0520972D21C5335C0026579C /* DEBUG.plist */,
+				0520972E21C5335C0026579C /* RELEASE.plist */,
+				0520972F21C5335C0026579C /* STAGING.plist */,
+				0520972A21C533020026579C /* AppConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		0520973321C533FE0026579C /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				0520973421C5340C0026579C /* photos */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		0520973B21C536A20026579C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0520973C21C537610026579C /* Moya+Promises.swift */,
+				0520974021C53F900026579C /* UIViewController+Alert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		32989480CDC6105C45ED5B57 /* Pods */ = {
@@ -179,6 +239,7 @@
 				052096FC21C52C0F0026579C /* Sources */,
 				052096FD21C52C0F0026579C /* Frameworks */,
 				052096FE21C52C0F0026579C /* Resources */,
+				0520973621C534730026579C /* RSwift */,
 			);
 			buildRules = (
 			);
@@ -251,9 +312,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0520973221C5335C0026579C /* STAGING.plist in Resources */,
+				0520973021C5335C0026579C /* DEBUG.plist in Resources */,
 				0520970E21C52C100026579C /* LaunchScreen.storyboard in Resources */,
 				0520970B21C52C100026579C /* Assets.xcassets in Resources */,
 				0520970921C52C0F0026579C /* Main.storyboard in Resources */,
+				0520973121C5335C0026579C /* RELEASE.plist in Resources */,
+				0520973521C5340C0026579C /* photos in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +332,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0520973621C534730026579C /* RSwift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = RSwift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
 		196D14D40CFCA5B338E69515 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,7 +401,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0520974121C53F900026579C /* UIViewController+Alert.swift in Sources */,
+				0520973F21C5382E0026579C /* TrendPhotoModel.swift in Sources */,
+				0520973A21C534DA0026579C /* UnsplashPhotoObject.swift in Sources */,
 				0520970621C52C0F0026579C /* ViewController.swift in Sources */,
+				0520973D21C537610026579C /* Moya+Promises.swift in Sources */,
+				0520972B21C533020026579C /* AppConfig.swift in Sources */,
+				0520973821C5348F0026579C /* R.generated.swift in Sources */,
+				0520974321C541C00026579C /* Service+Access.swift in Sources */,
+				0520972921C532290026579C /* PhotosService.swift in Sources */,
 				0520970421C52C0F0026579C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

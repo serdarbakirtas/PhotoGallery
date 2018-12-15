@@ -7,6 +7,8 @@ def common_pods
 
     pod 'R.swift'
     pod 'Moya'
+    pod 'PromisesSwift'
+    pod 'Kingfisher'
 end
 
 target :'PhotoGallery' do
