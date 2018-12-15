@@ -94,11 +94,15 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
         let offsetY = scrollView.contentOffset.y + scrollView.frame.size.height
         let contentHeight = scrollView.contentSize.height
 
-//        print("\(offsetY) \(contentHeight)")
-        
         if offsetY - contentHeight > 40 {
             viewModel.fetch()
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let trendDetail = R.storyboard.trendDetail.trendDetailController()!
+        trendDetail.viewModel = viewModel.detailModel(at: indexPath.row)
+        self.present(trendDetail, animated: true, completion: nil)
     }
 }
 

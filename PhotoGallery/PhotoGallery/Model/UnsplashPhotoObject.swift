@@ -13,6 +13,7 @@ struct UnsplashPhotoObject: Decodable {
         var regular: String
         var thumb: String
         var small: String
+        var full: String
     }
 
     struct User: Decodable {
@@ -42,5 +43,9 @@ extension UnsplashPhotoObject: PhotoObject {
 
     var regularImagePath: String {
         return urls.regular
+    }
+    
+    var fullImagePath: String {
+        return urls.full
     }
 }

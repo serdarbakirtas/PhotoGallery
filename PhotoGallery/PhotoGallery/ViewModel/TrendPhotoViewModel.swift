@@ -27,12 +27,17 @@ protocol TrendPhotoRepresentable: ViewModelLiveCycle {
     func setCollectionBounds(_ size: CGSize)
     func itemsCount() -> Int
     func cellViewModel(at row: Int) -> TrendCellViewModel
+    func detailModel(at row: Int) -> PhotoDetailViewModel
     var lastErrorMessage: String? { get }
     var visibleCellInRow: CGFloat { get }
     func fetch()
 }
 
 class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
+    func detailModel(at row: Int) -> PhotoDetailViewModel {
+         return PhotoDetailViewModel(model: item(at: row))
+    }
+    
     var didFail: (() -> ())?
     var didUpdate: (() -> ())?
     

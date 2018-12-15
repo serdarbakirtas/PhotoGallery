@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Trend Detail Controller-->
+        <scene sceneID="z6y-3r-ixF">
+            <objects>
+                <viewController storyboardIdentifier="TrendDetailController" id="Qaf-YS-ckv" customClass="TrendDetailController" customModule="PhotoGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WMb-Pd-NlZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egA-v8-4PO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sRd-Fj-uA7">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="sRd-Fj-uA7" firstAttribute="top" secondItem="egA-v8-4PO" secondAttribute="top" id="87c-RT-gPn"/>
+                                    <constraint firstItem="sRd-Fj-uA7" firstAttribute="width" secondItem="egA-v8-4PO" secondAttribute="width" id="N0R-Qu-59h"/>
+                                    <constraint firstAttribute="trailing" secondItem="sRd-Fj-uA7" secondAttribute="trailing" id="YtA-Cv-prK"/>
+                                    <constraint firstItem="sRd-Fj-uA7" firstAttribute="leading" secondItem="egA-v8-4PO" secondAttribute="leading" id="cou-8j-M0Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="sRd-Fj-uA7" secondAttribute="bottom" id="mqm-5e-gpb"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-68-arP">
+                                <rect key="frame" x="295" y="20" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="nr5-z5-17p"/>
+                                    <constraint firstAttribute="width" constant="80" id="xNl-Wd-tgf"/>
+                                </constraints>
+                                <state key="normal" image="TrendDetail/close"/>
+                                <connections>
+                                    <action selector="closeTapped:" destination="Qaf-YS-ckv" eventType="touchUpInside" id="jVy-Ee-lri"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="egA-v8-4PO" firstAttribute="bottom" secondItem="WMb-Pd-NlZ" secondAttribute="bottom" id="GQR-TK-BtM"/>
+                            <constraint firstItem="sRd-Fj-uA7" firstAttribute="height" secondItem="WMb-Pd-NlZ" secondAttribute="height" id="ZI6-el-cDF"/>
+                            <constraint firstItem="egA-v8-4PO" firstAttribute="top" secondItem="WMb-Pd-NlZ" secondAttribute="top" id="Zjc-u3-vxQ"/>
+                            <constraint firstItem="mmp-68-arP" firstAttribute="top" secondItem="WcK-pU-EZx" secondAttribute="top" id="bM3-Jz-jsK"/>
+                            <constraint firstItem="egA-v8-4PO" firstAttribute="leading" secondItem="WMb-Pd-NlZ" secondAttribute="leading" id="bhC-t1-JtV"/>
+                            <constraint firstItem="WcK-pU-EZx" firstAttribute="trailing" secondItem="mmp-68-arP" secondAttribute="trailing" id="ny8-1J-SpJ"/>
+                            <constraint firstItem="egA-v8-4PO" firstAttribute="trailing" secondItem="WMb-Pd-NlZ" secondAttribute="trailing" id="oef-KQ-l3W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WcK-pU-EZx"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageZoom" destination="sRd-Fj-uA7" id="O9L-yF-Q8k"/>
+                        <outlet property="scrollView" destination="egA-v8-4PO" id="Bnk-e5-BBJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="28r-ru-U8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48.799999999999997" y="124.58770614692655"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TrendDetail/close" width="38" height="38"/>
+    </resources>
+</document>

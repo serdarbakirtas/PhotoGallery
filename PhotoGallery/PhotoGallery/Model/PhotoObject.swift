@@ -11,6 +11,7 @@ import Foundation
 protocol PhotoObject {
     var thumbnailImagePath: String { get }
     var regularImagePath: String { get }
+    var fullImagePath: String { get }
     var width: Int { get }
     var height: Int { get }
     var likes: Int { get }

@@ -66,6 +66,19 @@ struct R: Rswift.Validatable {
   
   /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
+    /// This `R.image.trendDetail` struct is generated, and contains static references to 1 images.
+    struct trendDetail {
+      /// Image `close`.
+      static let close = Rswift.ImageResource(bundle: R.hostingBundle, name: "TrendDetail/close")
+      
+      /// `UIImage(named: "close", bundle: ..., traitCollection: ...)`
+      static func close(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.trendDetail.close, compatibleWith: traitCollection)
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
@@ -87,16 +100,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `TrendDetail`.
+    static let trendDetail = _R.storyboard.trendDetail()
     /// Storyboard `Trends`.
     static let trends = _R.storyboard.trends()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    
+    /// `UIStoryboard(name: "TrendDetail", bundle: ...)`
+    static func trendDetail(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.trendDetail)
     }
     
     /// `UIStoryboard(name: "Trends", bundle: ...)`
@@ -136,6 +156,7 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try trendDetail.validate()
       try trends.validate()
     }
     
@@ -144,6 +165,23 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      fileprivate init() {}
+    }
+    
+    struct trendDetail: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "TrendDetail"
+      let trendDetailController = StoryboardViewControllerResource<TrendDetailController>(identifier: "TrendDetailController")
+      
+      func trendDetailController(_: Void = ()) -> TrendDetailController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: trendDetailController)
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "TrendDetail/close") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'TrendDetail/close' is used in storyboard 'TrendDetail', but couldn't be loaded.") }
+        if _R.storyboard.trendDetail().trendDetailController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'trendDetailController' could not be loaded from storyboard 'TrendDetail' as 'TrendDetailController'.") }
+      }
       
       fileprivate init() {}
     }
