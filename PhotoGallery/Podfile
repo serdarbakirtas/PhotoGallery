@@ -1,0 +1,36 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '9.3'
+use_modular_headers!
+inhibit_all_warnings!
+def common_pods
+
+    pod 'R.swift'
+    pod 'Moya'
+end
+
+target :'PhotoGallery' do
+    common_pods
+    target :'PhotoGalleryTests' do
+        inherit! :search_paths
+
+        pod 'Quick'
+        pod 'Nimble'
+    end
+end
+
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        # Supporting swift 4.0 frameworks which is they are not in current swift 4.2 yet.
+        unless [ ].include? target.name
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '4.0'
+            end
+        end
+
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.3'
+        end
+    end
+end
