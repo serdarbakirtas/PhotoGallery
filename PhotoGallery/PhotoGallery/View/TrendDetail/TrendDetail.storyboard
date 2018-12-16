@@ -21,10 +21,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egA-v8-4PO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sRd-Fj-uA7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sRd-Fj-uA7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="sRd-Fj-uA7" firstAttribute="top" secondItem="egA-v8-4PO" secondAttribute="top" id="87c-RT-gPn"/>
                                     <constraint firstItem="sRd-Fj-uA7" firstAttribute="width" secondItem="egA-v8-4PO" secondAttribute="width" id="N0R-Qu-59h"/>
@@ -45,7 +46,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="egA-v8-4PO" firstAttribute="bottom" secondItem="WMb-Pd-NlZ" secondAttribute="bottom" id="GQR-TK-BtM"/>
                             <constraint firstItem="sRd-Fj-uA7" firstAttribute="height" secondItem="WMb-Pd-NlZ" secondAttribute="height" id="ZI6-el-cDF"/>

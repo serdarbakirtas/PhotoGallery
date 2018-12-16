@@ -60,4 +60,12 @@ extension TrendDetailController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageZoom
     }
+
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        let imageViewSize = imageZoom.frame.size
+        let scrollViewSize = scrollView.bounds.size
+        let verticalInset = imageViewSize.height < scrollViewSize.height ? (scrollViewSize.height - imageViewSize.height) / 2 : 0
+        let horizontalInset = imageViewSize.width < scrollViewSize.width ? (scrollViewSize.width - imageViewSize.width) / 2 : 0
+        scrollView.contentInset = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
+    }
 }
