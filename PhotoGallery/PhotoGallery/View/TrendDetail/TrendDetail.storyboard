@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="bottom" secondItem="sRd-Fj-uA7" secondAttribute="bottom" id="mqm-5e-gpb"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-68-arP">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-68-arP">
                                 <rect key="frame" x="295" y="20" width="80" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="nr5-z5-17p"/>
@@ -58,6 +58,7 @@
                         <viewLayoutGuide key="safeArea" id="WcK-pU-EZx"/>
                     </view>
                     <connections>
+                        <outlet property="buttonClose" destination="mmp-68-arP" id="AzO-S4-AeQ"/>
                         <outlet property="imageZoom" destination="sRd-Fj-uA7" id="O9L-yF-Q8k"/>
                         <outlet property="scrollView" destination="egA-v8-4PO" id="Bnk-e5-BBJ"/>
                     </connections>

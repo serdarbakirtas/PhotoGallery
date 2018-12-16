@@ -37,12 +37,36 @@ class TrendPhotoModelSpec: QuickSpec {
             try! sut.prepare()
         })
         
-        it("should has photos url", closure: {
+        it("should has photo array", closure: {
+            sut.didUpdate = {
+                expect(sut.model.photos.first).notTo(beNil())
+            }
+            try! sut.prepare()
+        })
+        
+        it("should has photo full image path", closure: {
             sut.didUpdate = {
                 expect(sut.model.photos.first!.fullImagePath).to(equal("https://images.unsplash.com/photo-1544828116-28790ab0a418?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjQ2NTg3fQ"))
-                
+            }
+            try! sut.prepare()
+        })
+        
+        it("should has photo thumbnail image path", closure: {
+            sut.didUpdate = {
                 expect(sut.model.photos.first!.thumbnailImagePath).to(equal("https://images.unsplash.com/photo-1544828116-28790ab0a418?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjQ2NTg3fQ"))
-                
+            }
+            try! sut.prepare()
+        })
+        
+        it("should has photo regular image path", closure: {
+            sut.didUpdate = {
+                expect(sut.model.photos.first!.regularImagePath).to(equal("https://images.unsplash.com/photo-1544828116-28790ab0a418?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjQ2NTg3fQ"))
+            }
+            try! sut.prepare()
+        })
+        
+        it("should has photo id", closure: {
+            sut.didUpdate = {
                 expect(sut.model.photos.first!.id).to(equal("ax2CvGLRTw8"))
             }
             try! sut.prepare()
@@ -65,6 +89,14 @@ class TrendPhotoModelSpec: QuickSpec {
         it("should has pagination", closure: {
             sut.didUpdate = {
                 expect(sut.model.fetchNext()).toNot(beNil())
+            }
+            try! sut.prepare()
+        })
+        
+        it("should has width height", closure: {
+            sut.didUpdate = {
+                expect(sut.model.photos.first!.height).to(equal(5246))
+                expect(sut.model.photos.first!.width).to(equal(4160))
             }
             try! sut.prepare()
         })

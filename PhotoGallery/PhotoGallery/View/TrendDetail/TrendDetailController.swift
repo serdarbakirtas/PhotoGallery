@@ -10,8 +10,10 @@ import Kingfisher
 import UIKit
 
 class TrendDetailController: UIViewController {
-    @IBOutlet var imageZoom: UIImageView!
-    @IBOutlet var scrollView: UIScrollView!
+    private var indicator: UIView!
+    @IBOutlet private var buttonClose: UIButton!
+    @IBOutlet private var imageZoom: UIImageView!
+    @IBOutlet private var scrollView: UIScrollView!
 
     var viewModel: PhotoDetailViewModel! {
         didSet {
@@ -23,11 +25,16 @@ class TrendDetailController: UIViewController {
                 return
             }
 
+            indicator = UIViewController.displaySpinner(onView: view)
+            
             imageZoom.kf.setImage(with: fullImage, placeholder: nil, options: [
                 .scaleFactor(UIScreen.main.scale),
                 .transition(.fade(1)),
                 .cacheOriginalImage
             ], progressBlock: nil) { image, error, cashe, url in
+                UIViewController.removeSpinner(spinner: self.indicator)
+                self.buttonClose.isHidden = false
+                
                 let frame = self.scrollView.frame
                 let widthScale = image!.size.width / frame.width
                 let heightScale = image!.size.height / frame.height
