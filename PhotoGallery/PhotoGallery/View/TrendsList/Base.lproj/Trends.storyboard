@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Trend Photos Controller-->
+        <!--Gallery List-->
         <scene sceneID="fr3-rJ-hAf">
             <objects>
-                <collectionViewController storyboardIdentifier="TrendPhotosController" id="Ocf-LZ-RDL" customClass="TrendPhotosController" customModule="PhotoGallery" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="Ocf-LZ-RDL" customClass="TrendPhotosController" customModule="PhotoGallery" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nPq-n5-mzN">
                         <rect key="frame" x="0.0" y="0.0" width="376" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,7 +84,7 @@
                             <outlet property="delegate" destination="Ocf-LZ-RDL" id="5KY-hK-QcB"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="rPz-Xb-iML"/>
+                    <navigationItem key="navigationItem" title="Gallery List" id="rPz-Xb-iML"/>
                     <size key="freeformSize" width="376" height="667"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQ0-Wo-avJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -94,7 +94,7 @@
         <!--Navigation Controller-->
         <scene sceneID="399-MU-hnr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Ca-xA-DrW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TrendPhotosController" automaticallyAdjustsScrollViewInsets="NO" id="2Ca-xA-DrW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="O8k-ls-UuP">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

@@ -191,14 +191,14 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "Trends"
-      let trendPhotosController = StoryboardViewControllerResource<TrendPhotosController>(identifier: "TrendPhotosController")
+      let trendPhotosController = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "TrendPhotosController")
       
-      func trendPhotosController(_: Void = ()) -> TrendPhotosController? {
+      func trendPhotosController(_: Void = ()) -> UIKit.UINavigationController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: trendPhotosController)
       }
       
       static func validate() throws {
-        if _R.storyboard.trends().trendPhotosController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'trendPhotosController' could not be loaded from storyboard 'Trends' as 'TrendPhotosController'.") }
+        if _R.storyboard.trends().trendPhotosController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'trendPhotosController' could not be loaded from storyboard 'Trends' as 'UIKit.UINavigationController'.") }
       }
       
       fileprivate init() {}

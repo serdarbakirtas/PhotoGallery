@@ -34,9 +34,9 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmp-68-arP">
-                                <rect key="frame" x="295" y="20" width="80" height="80"/>
+                                <rect key="frame" x="295" y="20" width="80" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="nr5-z5-17p"/>
+                                    <constraint firstAttribute="height" constant="60" id="nr5-z5-17p"/>
                                     <constraint firstAttribute="width" constant="80" id="xNl-Wd-tgf"/>
                                 </constraints>
                                 <state key="normal" image="TrendDetail/close"/>
@@ -50,9 +50,9 @@
                             <constraint firstItem="egA-v8-4PO" firstAttribute="bottom" secondItem="WMb-Pd-NlZ" secondAttribute="bottom" id="GQR-TK-BtM"/>
                             <constraint firstItem="sRd-Fj-uA7" firstAttribute="height" secondItem="WMb-Pd-NlZ" secondAttribute="height" id="ZI6-el-cDF"/>
                             <constraint firstItem="egA-v8-4PO" firstAttribute="top" secondItem="WMb-Pd-NlZ" secondAttribute="top" id="Zjc-u3-vxQ"/>
-                            <constraint firstItem="mmp-68-arP" firstAttribute="top" secondItem="WcK-pU-EZx" secondAttribute="top" id="bM3-Jz-jsK"/>
+                            <constraint firstItem="mmp-68-arP" firstAttribute="top" secondItem="WMb-Pd-NlZ" secondAttribute="topMargin" id="bM3-Jz-jsK"/>
                             <constraint firstItem="egA-v8-4PO" firstAttribute="leading" secondItem="WMb-Pd-NlZ" secondAttribute="leading" id="bhC-t1-JtV"/>
-                            <constraint firstItem="WcK-pU-EZx" firstAttribute="trailing" secondItem="mmp-68-arP" secondAttribute="trailing" id="ny8-1J-SpJ"/>
+                            <constraint firstAttribute="trailing" secondItem="mmp-68-arP" secondAttribute="trailing" id="ny8-1J-SpJ"/>
                             <constraint firstItem="egA-v8-4PO" firstAttribute="trailing" secondItem="WMb-Pd-NlZ" secondAttribute="trailing" id="oef-KQ-l3W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WcK-pU-EZx"/>

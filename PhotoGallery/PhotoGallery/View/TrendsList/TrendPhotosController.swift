@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya
 
 class TrendPhotosController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var viewModel: TrendPhotoRepresentable! {
@@ -36,10 +37,18 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
             try? viewModel.prepare()
         }
     }
+    
+    let trendPhotoViewModel: TrendPhotoViewModel = {
+        let model = TrendPhotoModel(provider: MoyaProvider<PhotosService>())
+        let vm = TrendPhotoViewModel(model: model)
+        return vm
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel = trendPhotoViewModel
+        
         layout.delegate = self
         let spacing = viewModel.collectionSpacing
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
