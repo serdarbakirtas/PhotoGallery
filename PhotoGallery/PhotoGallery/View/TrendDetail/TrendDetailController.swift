@@ -26,7 +26,7 @@ class TrendDetailController: UIViewController {
             }
 
             indicator = UIViewController.displaySpinner(onView: view)
-            
+
             imageZoom.kf.setImage(with: fullImage, placeholder: nil, options: [
                 .scaleFactor(UIScreen.main.scale),
                 .transition(.fade(1)),
@@ -34,7 +34,7 @@ class TrendDetailController: UIViewController {
             ], progressBlock: nil) { image, error, cashe, url in
                 UIViewController.removeSpinner(spinner: self.indicator)
                 self.buttonClose.isHidden = false
-                
+
                 let frame = self.scrollView.frame
                 let widthScale = image!.size.width / frame.width
                 let heightScale = image!.size.height / frame.height
@@ -50,7 +50,7 @@ class TrendDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     @IBAction func closeTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

@@ -6,8 +6,8 @@
 //  Copyright © 2018 Homify. All rights reserved.
 //
 
-import UIKit
 import Moya
+import UIKit
 
 class TrendPhotosController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var viewModel: TrendPhotoRepresentable! {
@@ -33,11 +33,11 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
                 }
             }
 
-            _ = self.view
+            _ = view
             try? viewModel.prepare()
         }
     }
-    
+
     let trendPhotoViewModel: TrendPhotoViewModel = {
         let model = TrendPhotoModel(provider: MoyaProvider<PhotosService>())
         let vm = TrendPhotoViewModel(model: model)
@@ -48,7 +48,7 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
         super.viewDidLoad()
 
         viewModel = trendPhotoViewModel
-        
+
         layout.delegate = self
         let spacing = viewModel.collectionSpacing
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
@@ -61,13 +61,10 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         // Before rotation
-        print(view.safeAreaLayoutGuide.layoutFrame.size)
-
         collectionView.alpha = 0
         coordinator.animate(alongsideTransition: { context in
         }) { context in
             // After rotation
-            print(self.view.safeAreaLayoutGuide.layoutFrame.size)
             self.viewModel.setCollectionBounds(self.view.safeAreaLayoutGuide.layoutFrame.size)
             self.collectionView.reloadData()
 
@@ -107,11 +104,11 @@ class TrendPhotosController: UICollectionViewController, UICollectionViewDelegat
             viewModel.fetch()
         }
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let trendDetail = R.storyboard.trendDetail.trendDetailController()!
         trendDetail.viewModel = viewModel.detailModel(at: indexPath.row)
-        self.present(trendDetail, animated: true, completion: nil)
+        present(trendDetail, animated: true, completion: nil)
     }
 }
 

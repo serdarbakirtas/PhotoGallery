@@ -51,7 +51,6 @@ class TrendPhotoViewModel: ViewModel, TrendPhotoRepresentable {
     
     /// Prepare model of weather
     func prepare() throws {
-//        let model = TrendPhotoModel(provider: MoyaProvider<PhotosService>())
         fetch()
     }
     
