@@ -66,6 +66,19 @@ struct R: Rswift.Validatable {
   
   /// This `R.image` struct is generated, and contains static references to 0 images.
   struct image {
+    /// This `R.image.launchScreen` struct is generated, and contains static references to 1 images.
+    struct launchScreen {
+      /// Image `launch_screen`.
+      static let launch_screen = Rswift.ImageResource(bundle: R.hostingBundle, name: "LaunchScreen/launch_screen")
+      
+      /// `UIImage(named: "launch_screen", bundle: ..., traitCollection: ...)`
+      static func launch_screen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.launchScreen.launch_screen, compatibleWith: traitCollection)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This `R.image.trendDetail` struct is generated, and contains static references to 1 images.
     struct trendDetail {
       /// Image `close`.
@@ -158,13 +171,18 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try trendDetail.validate()
       try trends.validate()
+      try launchScreen.validate()
     }
     
-    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "LaunchScreen/launch_screen") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LaunchScreen/launch_screen' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }
